@@ -26,7 +26,7 @@ public class WebExampleTest extends BaseTest {
 	
 	@Test
 	public void browserTestGoogleSearch() {
-		driver.get("https://master.dqb4f36jourft.amplifyapp.com/");
+		driver.get("https://demo-bank.ct.digital.ai/");
 		
 		new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(By.id("login")));
 		
