@@ -1,4 +1,4 @@
-import java.text.NumberFormat;
+import java.time.Duration;
 import org.openqa.selenium.*;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -15,8 +15,8 @@ public class WebExampleTest extends BaseTest {
 	
 	@BeforeEach
 	public void setUp() throws Exception {
-		dc.setCapability("testName", "Web Example Test");
-		dc.setCapability("accessKey", getAccessKey());
+		dc.setCapability("experitest:testName", "Web Example Test");
+		dc.setCapability("experitest:accessKey", getAccessKey());
 		
 		/* Change this to run your test on different browsers. */
 		dc.setCapability(CapabilityType.BROWSER_NAME, "chrome");
@@ -25,14 +25,14 @@ public class WebExampleTest extends BaseTest {
 	}
 	
 	@Test
-	public void browserTestGoogleSearch() {
-		driver.get("https://demo-bank.ct.digital.ai/");
+	public void demoBankTest() {
+		driver.get("https://demo-bank.ct.digital.ai");
 		
-		new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(By.id("login")));
+		new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.presenceOfElementLocated(By.id("login")));
 		
 		driver.findElement(By.xpath("//*[@data-auto='username']//input")).sendKeys("company");
 		driver.findElement(By.xpath("//*[@data-auto='password']//input")).sendKeys("company");
-		driver.findElement(By.className("login-button")).click();
+		driver.findElement(By.xpath("//*[@data-auto='login']")).click();
 		
 		driver.findElement(By.xpath("//*[@data-auto='transfer-funds']")).click();
 		
