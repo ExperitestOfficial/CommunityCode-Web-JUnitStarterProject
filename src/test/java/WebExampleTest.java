@@ -15,8 +15,8 @@ public class WebExampleTest extends BaseTest {
 	
 	@BeforeEach
 	public void setUp() throws Exception {
-		dc.setCapability("experitest:testName", "Web Example Test");
-		dc.setCapability("experitest:accessKey", getAccessKey());
+		dc.setCapability("digitalai:testName", "Web Example Test");
+		dc.setCapability("digitalai:accessKey", getAccessKey());
 		
 		/* Change this to run your test on different browsers. */
 		dc.setCapability(CapabilityType.BROWSER_NAME, "chrome");
